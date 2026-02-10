@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Galgenmännchen-Rätsel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- Title -->
+        <header class="game-header">
+            <div class="griffin left">🦅</div>
+            <h1 class="game-title">Das Galgenmännchen-Rätsel</h1>
+            <div class="griffin right">🦅</div>
+        </header>
+
+        <!-- Main Game Area -->
+        <div class="main-game">
+            <!-- Guessed Letters Circle (Left) -->
+            <div class="guessed-letters-panel">
+                <div class="panel-title">Geratene<br>Buchstaben</div>
+                <div class="letter-circle" id="guessed-circle">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Central Hangman Portal -->
+            <div class="hangman-portal">
+                <svg class="portal-frame" viewBox="0 0 400 500">
+                    <!-- Ornate Frame -->
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Portal Background -->
+                    <rect x="50" y="50" width="300" height="400" rx="20" fill="url(#portalGradient)" opacity="0.3"/>
+
+                    <defs>
+                        <linearGradient id="portalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1a3a52;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0a1828;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Chains -->
+                    <line id="chain-left" x1="150" y1="80" x2="150" y2="150" stroke="#4a6fa5" stroke-width="3" class="hidden"/>
+                    <line id="chain-right" x1="250" y1="80" x2="250" y2="150" stroke="#4a6fa5" stroke-width="3" class="hidden"/>
+
+                    <!-- Ethereal Figure Parts -->
+                    <circle id="head" cx="200" cy="180" r="25" stroke="#5dade2" stroke-width="3" fill="rgba(93, 173, 226, 0.3)" filter="url(#glow)" class="hidden ethereal"/>
+
+                    <ellipse id="body" cx="200" cy="240" rx="20" ry="40" stroke="#5dade2" stroke-width="3" fill="rgba(93, 173, 226, 0.3)" filter="url(#glow)" class="hidden ethereal"/>
+
+                    <line id="left-arm" x1="200" y1="220" x2="170" y2="250" stroke="#5dade2" stroke-width="3" filter="url(#glow)" class="hidden ethereal"/>
+
+                    <line id="right-arm" x1="200" y1="220" x2="230" y2="250" stroke="#5dade2" stroke-width="3" filter="url(#glow)" class="hidden ethereal"/>
+
+                    <line id="left-leg" x1="200" y1="280" x2="180" y2="330" stroke="#5dade2" stroke-width="3" filter="url(#glow)" class="hidden ethereal"/>
+
+                    <line id="right-leg" x1="200" y1="280" x2="220" y2="330" stroke="#5dade2" stroke-width="3" filter="url(#glow)" class="hidden ethereal"/>
+                </svg>
+            </div>
+
+            <!-- Guesses Remaining (Right) -->
+            <div class="guesses-panel">
+                <div class="hourglass">⏳</div>
+                <div class="panel-title">Verbleibende<br>Versuche</div>
+                <div class="guesses-number" id="guesses-remaining">6</div>
+            </div>
+        </div>
+
+        <!-- Word Display -->
+        <div class="word-container">
+            <div class="word-display" id="word-display"></div>
+        </div>
+
+        <!-- Keyboard -->
+        <div class="keyboard-container">
+            <div class="keyboard" id="keyboard"></div>
+        </div>
+
+        <!-- Message -->
+        <div class="message" id="message"></div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="fantasy-button" id="new-puzzle">Neues Rätsel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
