@@ -1,4 +1,4 @@
-# Hangman Game
+# Hangman Game aka Claude Vibecode Experiment
 
 A simple hangman word guessing game built with HTML, CSS, and JavaScript.
 
