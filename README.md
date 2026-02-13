@@ -6,7 +6,7 @@ This started as a quick test about what Claude vibe codes based on a very simple
 
 ## Play
 
-[Play the game here](https://meko-christian.github.io/hangman/)
+[Play the game here](https://cwbudde.github.io/hangman-claude/)
 
 ## How to Play
 
